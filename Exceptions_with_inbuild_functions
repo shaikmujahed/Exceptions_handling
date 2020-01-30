@@ -1,0 +1,74 @@
+# load_file int,str,float and their types
+# looks! We'll take two slightly different approaches.
+
+def load_file(filename):
+    # First, we need to open the file:
+
+    file_reader = open(filename, "r")
+
+    # Next, we need to read its contents. Because the
+    # directions say that there will only be one line, it
+    # actually doesn't matter if we use read() or
+    # readline(). We'll use readline().
+
+    contents = file_reader.readline()
+    #file_reder.close()
+
+    # Notice that we don't bother stripping the \n off
+    # the end of the contents: our type conversion
+    # functions do that automatically.
+
+    try:
+
+        # Now, we want to try to convert it to an integer.
+        # If contents can be read as an integer, this line
+        # will work, and the function is over*. If this
+        # line doesn't work, an error will arise.
+
+        return int(contents)
+
+    except:
+          #psss
+
+        # If we reach this point, an error arose. So, the
+        # contents can't be read as an integer. Now let's
+        # try to read them as a float:
+
+        try:
+
+            # If this line works, then contents was a float
+            # and the function is over*. If not, it will
+            # generate an error.
+
+            return float(contents)
+
+        except:
+
+            # If we reach here, then we encountered an
+            # error converting contents to both an int and
+            # a float. So, there's nothing left to do but
+            # just return the original contents of the file
+            # as a string, then the function is over*.
+
+            return contents
+
+    # See those asterisks where I wrote 'over'? That's
+    # because this is a great demonstration of when we might
+    # use a finally block. The contents of a finally block
+    # after a try-except block will always run no matter what
+    # happened inside the try-except blocks. So, since we
+    # always need to close the file, we can do that in a
+    # finally block:
+
+    finally:
+        file_reader.close()
+
+    # sample_answer_2.py gives another example of how to solve
+    # this: it's a little less elegant, but maybe simpler to
+    # understand if this was confusing.
+
+
+contents = load_file("LoadFromFileInput.txt")
+print(contents)
+print(type(contents))
+
