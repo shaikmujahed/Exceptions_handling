@@ -1,0 +1,81 @@
+'''Recall that input from a user is always in the form of a string.
+Write a function called "input_type" that gets user input and
+determines what kind of string the user entered. The user input
+will be supplied as an argument to the function like normal.
+
+  - Your function should return "integer" if the string only
+    contains characters 0-9.
+  - Your function should return "float" if the string only
+    contains the numbers 0-9 and at most one period.
+  - You should return "boolean" if the user enters "True" or
+    "False".
+  - Otherwise, you should return "string".
+
+
+ Below are some lines of code that will test your function.
+ You can change the value of the variable(s) to test your
+ function with different inputs.
+
+ If your function works correctly, this will originally
+ print:
+ string
+ boolean
+ float'''
+
+
+def input_type(user_input):
+    if user_input == "True" or user_input == "False":
+        return "boolean"
+    try:
+        int(user_input)
+        return "integer"
+    except:
+        try:
+            float(user_input)
+            return "float"
+        except:
+            return " string"
+
+print(input_type("This is a string"))
+print(input_type("True"))
+print(input_type("10.3256"))
+print(input_type("789456"))
+
+
+
+def in_ty(us_in):
+    if us_in == " True" or us_in == "False":
+        return "boolean"
+    try:
+        int(us_in)
+        return "integer"
+    except:
+        try:
+            float(us_in)
+            return "float"
+        except:
+            return "string"
+print(in_ty("jhingalala ooo"))
+print(in_ty("True"))
+print(in_ty("55.2330"))
+
+
+
+def input_type(a):
+   try:
+    int(a)
+    return "integer"
+   except ValueError:
+    try:
+        float(a)
+        return "float"
+    except ValueError:
+        try:
+          if a=="True" or a=="False":
+            return "boolean"
+          else:
+            return "string"
+        except:
+          return a
+
+
